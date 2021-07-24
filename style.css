@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+:root {
+    --Very-dark-blue: hsl(233, 47%, 7%);
+    --Dark-desaturated-blue: hsl(244, 38%, 16%);
+    --Soft-violet: hsl(277, 64%, 61%);
+    /* fonts */
+    --font-primary-color: hsl(0, 0%, 100%);
+    --font-secondary-color: hsla(0, 0%, 100%, 0.75);
+    --stats-color: hsla(0, 0%, 100%, 0.6);
+    /* change color */
+    --btn-1-color: #aa5cdb;
+    --img-1-color: hsl(277, 30%, 30%);
+
+    --btn-2-color: hsl(318, 76%, 62%);
+    --img-2-color: hsl(318, 29%, 30%);
+
+    --btn-3-color: hsl(293, 85%, 65%);
+    --img-3-color: hsl(293, 30%, 30%);
+
+    --btn-4-color: hsl(244, 76%, 62%);
+    --img-4-color: hsl(244, 30%, 30%);
+}
+html {
+    font-size: 62.5%;
+    font-family: "Inter", sans-serif;
+    color: white;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    width: 100%;
+    height: 100%;
+}
+.container {
+    background-color: var(--Very-dark-blue);
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: 1fr 30px;
+}
+
+.card {
+    min-width: 290px;
+    margin: 60px 20px;
+    background-color: var(--Dark-desaturated-blue);
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas:
+        "img"
+        "content";
+    position: relative;
+}
+
+.img {
+    transition: all 0.7s ease-out;
+    grid-area: img;
+    background: url(/images/image-header-mobile.jpg);
+    background-color: var(--img-1-color);
+
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content {
+    margin: 30px 20px;
+}
+.content .text h2 {
+    text-align: center;
+    margin: 15px 20px;
+    font-size: 2rem;
+}
+.content .text h2 span {
+    color: var(--Soft-violet);
+}
+.content .text p {
+    font-family: "Lexend Deca", sans-serif;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--font-secondary-color);
+    line-height: 23px;
+    margin: 10px auto 50px auto;
+    padding: 0 50px;
+}
+
+.stats {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-right: 0;
+}
+.stats .stat-num {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.stats .stat-num span {
+    display: block;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: var(--stats-color);
+    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.attribution {
+    text-align: center;
+    font-size: 11px;
+}
+.attribution a {
+    color: hsl(0, 0%, 100%);
+}
+.change-color {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top: -10px;
+    left: 10px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+.color1 {
+    background-color: var(--btn-1-color);
+}
+.color2 {
+    background-color: var(--btn-2-color);
+}
+.color3 {
+    background-color: var(--btn-3-color);
+}
+.color4 {
+    background-color: var(--btn-4-color);
+}
+
+@media (min-width: 900px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+    }
+    .container {
+        grid-template-rows: 1fr 20px;
+    }
+    .card {
+        margin: 0;
+        max-width: 920px;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "content img";
+        width: 100%;
+    }
+    .img {
+        background: url(/images/image-header-desktop.jpg);
+        background-color: var(--img-1-color);
+
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .content {
+        margin: 55px 60px;
+    }
+    .content .text h2 {
+        margin: 0 10px 30px 0;
+        font-size: 3rem;
+    }
+    .content .text p {
+        font-size: 1.2rem;
+        margin: 0 50px 50px 0;
+        text-align: start;
+        padding: 0;
+    }
+    .stats {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-right: 50px;
+    }
+    .stats .stat-num {
+        text-align: start;
+    }
+    .stats .stat-num span {
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 370px) {
+    .stats {
+        flex-direction: column;
+    }
+}
